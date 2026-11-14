@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "BuilderSupply | Tools & Materials for Builders",
@@ -16,9 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col antialiased">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <Providers>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
