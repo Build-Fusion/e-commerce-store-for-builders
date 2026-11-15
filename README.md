@@ -4,6 +4,8 @@ A modern Next.js e-commerce starter focused on tools, hardware, and materials fo
 
 **Live:** [e-commerce-store-for-builders](https://e-commerce-store-for-builders.vercel.app)
 
+> **Built entirely with Grok** (free tier) using the **Vercel** and **GitHub** connectors — no local terminal, no Vercel CLI, and no manual dashboard setup beyond granting the GitHub App access once. Everything was driven from a single chat conversation.
+
 ## Features
 
 - Product listing with category filters
@@ -23,48 +25,49 @@ A modern Next.js e-commerce starter focused on tools, hardware, and materials fo
 
 ---
 
-## Steps We Followed to Create This Project
+## How This Project Was Created (via Grok)
 
-### 1. Connect Vercel
+This project was created end-to-end inside a Grok conversation using connected tools.
 
-- Connected the Vercel account in Grok so project and deployment tools were available.
+### 1. Connect Vercel & GitHub in Grok
+
+- Connected the Vercel and GitHub accounts so Grok could create projects, repos, push code, and trigger deployments.
 
 ### 2. Create the Vercel project
 
-- Created a new Vercel project named `e-commerce-store-for-builders`
+- Asked Grok to create a new Vercel project named `e-commerce-store-for-builders`
 - Framework preset: **Next.js**
-- Team: existing Vercel team
+- Linked to the existing Vercel team
 
 ### 3. Create an empty GitHub repository
 
-- Created a new public GitHub repo: `Build-Fusion/e-commerce-store-for-builders`
+- Asked Grok to create a new public GitHub repo: `Build-Fusion/e-commerce-store-for-builders`
 - Initialized with a README
 
 ### 4. Link GitHub repo to the Vercel project
 
-- Linked the GitHub repository to the Vercel project
+- Linked the GitHub repository to the Vercel project through Grok
 - Production branch: `main`
-- Enabled automatic deployments on push
+- Automatic deployments on push enabled
 
-> **Note:** If Vercel cannot see a newly created repo, grant the Vercel GitHub App access to the repository (GitHub → Settings → Applications → Vercel → Repository access).
+> **Note:** If Vercel cannot see a newly created repo, grant the Vercel GitHub App access to the repository (GitHub → Settings → Applications → Vercel → Repository access). This was the only manual step required.
 
 ### 5. Push the Next.js e-commerce application
 
-Pushed a complete App Router starter including:
+- Instructed Grok to push a complete App Router starter, including:
+  - `app/` — pages (home, products, product detail, cart)
+  - `components/` — Header, Footer, ProductCard, AddToCartButton
+  - `lib/products.ts` — sample product catalog (tools, safety, fasteners, measuring)
+  - `lib/cart.tsx` — client-side cart with localStorage persistence
+  - Tailwind CSS + TypeScript config
 
-- `app/` — pages (home, products, product detail, cart)
-- `components/` — Header, Footer, ProductCard, AddToCartButton
-- `lib/products.ts` — sample product catalog (tools, safety, fasteners, measuring)
-- `lib/cart.tsx` — client-side cart with localStorage persistence
-- Tailwind CSS + TypeScript config
-
-### 6. Fix deployment issues
+### 6. Fix deployment issues (still from chat)
 
 - First builds failed because of a **Vercel security block** on older Next.js versions
-- Upgraded to the patched version required by the November 2026 security release:
+- Grok upgraded the project to the patched version required by the November 2026 security release:
   - `next@15.5.29`
   - `eslint-config-next@15.5.29`
-- Wrapped the app with `CartProvider` so the cart works across pages
+- Also wrapped the app with `CartProvider` so the cart works across pages
 
 ### 7. Production deployment
 
